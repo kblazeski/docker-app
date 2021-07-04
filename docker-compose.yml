@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  spring-web-app:
+    image: 'spring-web-app:latest'
+    build:
+      context: .
+    container_name: spring-web-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresdb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresdb:5432/
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=pw
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  postgresdb:
+    image: 'postgres:13.1-alpine'
+    container_name: postgresdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=pw
+      - POSTGRES_DB=emt-aud
+volumes:
+  postgresdata:
