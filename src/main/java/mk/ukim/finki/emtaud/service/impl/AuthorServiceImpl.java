@@ -39,6 +39,16 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
+    public Optional<Author> edit(Long id, String name, String surname, Long countryId) {
+        Country country = this.countryRepository.findById(countryId).get();
+        Author author = this.authorRepository.findById(id).get();
+        author.setName(name);
+        author.setSurname(surname);
+        author.setCountry(country);
+        return Optional.of(this.authorRepository.save(author));
+    }
+
+    @Override
     public void delete(Long id) {
         this.authorRepository.deleteById(id);
     }

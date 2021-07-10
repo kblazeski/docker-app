@@ -15,5 +15,6 @@ public interface AuthorService {
     List<Author> findAll();
     Optional<Author> save(String name,String surname,Long id);
     Optional<Author> findById(Long id);
+    Optional<Author> edit(Long id,String name,String surname,Long countryId);
     void delete(Long id);
 }
