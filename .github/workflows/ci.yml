@@ -25,7 +25,7 @@ jobs:
       run: mvn clean package -DskipTests
       
     - name: Copy jar file
-      run: cp target/docker-app-0.0.1-SNAPSHOT.jar ../
+      run: cp target/*.jar ../
       
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
