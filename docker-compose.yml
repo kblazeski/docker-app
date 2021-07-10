@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   spring-web-app:
-    image: 'spring-web-app:latest'
+    image: 'kblazeski/spring-web-app:latest'
     build:
       context: .
     container_name: spring-web-app

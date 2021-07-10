@@ -49,7 +49,7 @@ public class AuthorController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/edit/{id}")
     public ResponseEntity<Author> editAuthor(@PathVariable Long id,@RequestParam String name, @RequestParam String surname, @RequestParam Long countryId){
         return this.authorService.edit(id,name,surname,countryId)
                 .map(author -> ResponseEntity.ok().body(author))
