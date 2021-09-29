@@ -14,8 +14,8 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000")
 public class CategoryController {
 
-    @GetMapping
-    public List<Category> getAllCategories(){
-        return Arrays.asList(Category.values());
-    }
+//    @GetMapping
+//    public List<Category> getAllCategories(){
+//        return Arrays.asList(Category.values());
+//    }
 }
